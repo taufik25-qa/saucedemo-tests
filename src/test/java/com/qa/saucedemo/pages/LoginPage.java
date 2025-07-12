@@ -45,4 +45,8 @@ public class LoginPage {
             throw new AssertionError("User is not on inventory page");
         }
     }
+
+    public String getErrorMessage() {
+        return driver.findElement(By.cssSelector("h3[data-test='error']")).getText();
+    }
 }

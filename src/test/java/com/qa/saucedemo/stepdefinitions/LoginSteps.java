@@ -3,6 +3,7 @@ package com.qa.saucedemo.stepdefinitions;
 import com.qa.saucedemo.pages.LoginPage;
 import com.qa.saucedemo.hooks.Hooks;
 import io.cucumber.java.en.*;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 public class LoginSteps {
@@ -30,5 +31,13 @@ public class LoginSteps {
         // Buat metode ini di LoginPage
         loginPage.verifyUserOnInventoryPage();
     }
+
+    @Then("user should see an error message {string}")
+    public void user_should_see_an_error_message(String expectedMessage) {
+        String actualMessage = loginPage.getErrorMessage(); // Panggil dari PageObject
+        Assert.assertEquals(actualMessage.trim(), expectedMessage.trim());
+    }
+
+
 
 }
